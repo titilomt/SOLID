@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",                           // Define a versão do ECMAScript de saída.
+    "module": "ES2022",                      // Define o sistema de módulos.
+    "outDir": "./dist",                        // Diretório para os arquivos de saída.
+    "rootDir": "./src",                        // Diretório para os arquivos de entrada (fonte).
+    "strict": true,                            // Habilita uma ampla gama de verificações de tipo.
+    "esModuleInterop": true,                   // Permite a interoperabilidade de módulos ES6 com CommonJS/AMD/UMD.
+    "skipLibCheck": true,                      // Pula a verificação de tipos nos arquivos de declaração.
+    "forceConsistentCasingInFileNames": true   // Garante que o caso dos arquivos importados corresponda ao caso dos arquivos reais.
+  },
+  "include": ["src/**/*"],                     // Arquivos a serem incluídos na compilação.
+  "exclude": ["node_modules"]  // Arquivos/pastas a serem excluídos da compilação.
+}
