@@ -14,8 +14,8 @@ SOLID stands for five design principles intended to make software designs more u
 To explore the examples, clone this repository to your local machine and navigate to each principle's dedicated directory. Each principle is demonstrated using Node.js, so ensure you have Node.js installed on your system.
 
 ```bash
-git clone https://github.com/yourusername/solid-principles-examples.git
-cd solid-principles-examples
+git clone https://github.com/titilomt/SOLID.git
+cd SOLID
 ```
 ## Prerequisites
 Node.js (recommended version 18 or above)
@@ -26,7 +26,7 @@ No additional installation is required. Each example can be run directly using N
 ```bash
 cd SRP
 npm install
-npm start
+npm test
 ```
 
 ## Examples Overview
