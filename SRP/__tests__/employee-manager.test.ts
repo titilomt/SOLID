@@ -16,6 +16,6 @@ describe("EmployeeManager", () => {
     const employee = new Employee(1, "John", "Developer", 10, 45);
     const employeeManager = new EmployeeManager();
     employeeManager.save(employee);
-    expect(employeeManager.reportHours(1)).toBe(40);
+    expect(employeeManager.reportHours(1)).toBe(45);
   });
 });

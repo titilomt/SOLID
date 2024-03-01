@@ -10,6 +10,6 @@
     "skipLibCheck": true,                      // Pula a verificação de tipos nos arquivos de declaração.
     "forceConsistentCasingInFileNames": true   // Garante que o caso dos arquivos importados corresponda ao caso dos arquivos reais.
   },
-  "include": ["src/**/*", "__tests__/**/*"],                     // Arquivos a serem incluídos na compilação.
+  "include": ["src/**/*", "__tests__/**/*", "src/notifications.ts"],                     // Arquivos a serem incluídos na compilação.
   "exclude": ["node_modules"]  // Arquivos/pastas a serem excluídos da compilação.
 }

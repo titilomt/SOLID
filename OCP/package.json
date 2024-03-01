@@ -1,7 +1,7 @@
 {
-  "name": "srp-solid",
+  "name": "ocp-solid",
   "version": "1.0.0",
-  "description": "SOLID Principles - Single Responsibility Principle",
+  "description": "SOLID Principles - Open Closed Principle",
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
