@@ -17,7 +17,6 @@ SOLID representa cinco princípios de design destinados a tornar os designs de s
 Para explorar os exemplos, clone este repositório para sua máquina local e navegue até o diretório dedicado de cada princípio. Cada princípio é demonstrado usando Node.js, então certifique-se de ter o Node.js instalado em seu sistema.
 
 ```bash
-Copy code
 git clone https://github.com/titilomt/SOLID.git
 cd SOLID
 ```
@@ -29,7 +28,6 @@ Node.js (versão recomendada 18 ou superior)
 Nenhuma instalação adicional é necessária. Cada exemplo pode ser executado diretamente usando o Node.js. Por exemplo, para executar um exemplo para o Princípio da Responsabilidade Única:
 
 ```bash
-Copy code
 cd SRP
 npm install
 npm test
