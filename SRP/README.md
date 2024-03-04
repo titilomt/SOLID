@@ -1,4 +1,6 @@
 # SRP - Single Responsibility Principle
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](./README.pt-br.md)
 
 In the context of Clean Architecture, SRP is applied at several levels. At a more macro level, the architecture is divided into layers, such as presentation, business logic and data. Each layer has a clearly defined responsibility and should not overlap. For example, the presentation layer only deals with the user interface, while the business logic layer only focuses on domain-specific logic.
 On a more micro level, such as when defining classes and functions, SRP is applied to ensure that each component has a single responsibility. A class should only have one reason to be modified. If a class is doing more than a single task, it is violating the SRP.
@@ -40,7 +42,7 @@ class LibraryManager
 
 ### Refactored Scenario - Adhering to the SRP
 
-To adhere to the SRP, the LibraryManager class is refactored into two separate classes: UserManager and BookManager. Each class is responsible for handling user operations and book operations, respectively. This separation of concerns ensures that each class has a single responsibility and only one reason to change.
+To adhere to the SRP, the `LibraryManager` class is refactored into two separate classes: `UserManager` and `BookManager`. Each class is responsible for handling user operations and book operations, respectively. This separation of concerns ensures that each class has a single responsibility and only one reason to change.
 
 ```javascript
 class UserManager
@@ -81,3 +83,11 @@ In this refactored design, the LibraryManager class is refactored into two separ
 ## Exercise
 
 In the `SRP` directory, you will find the EmployeeManager class, which is responsible for handling both employee operations and department operations. Your task is to refactor the EmployeeManager class into two separate classes: EmployeeManager and DepartmentManager. Each class should be responsible for handling employee operations and department operations, respectively. This exercise will help you practice applying the Single Responsibility Principle (SRP) to improve the maintainability and flexibility of the system.
+
+## Task
+
+All tests in this exercise should pass. You should not modify the existing tests. You can run the tests using the following command:
+
+```bash
+npm test
+```

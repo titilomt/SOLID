@@ -1,4 +1,6 @@
 # ISP - Interface Segregation Principle
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](./README.pt-br.md)
 
 The Interface Segregation Principle (ISP) is one of the five SOLID principles of object-oriented programming. It states that a client should not be forced to depend on methods it does not use. In other words, a class should not be forced to implement interfaces it does not need.
 
@@ -8,7 +10,7 @@ Imagine an order management system where different types of orders need to be pr
 
 ### Initial Scenario - Violating the ISP
 
-In this example, OnlineOrderProcessor is forced to implement processPhoneOrder and processEmailOrder, even though it should only process online orders. This clearly violates the ISP, as OnlineOrderProcessor is forced to depend on interfaces it does not use.
+In this example, `OnlineOrderProcessor` is forced to implement `processPhoneOrder` and `processEmailOrder`, even though it should only process online orders. This clearly violates the ISP, as `OnlineOrderProcessor` is forced to depend on interfaces it does not use.
 
 ```javascript
 interface OrderProcessor {

@@ -1,4 +1,7 @@
-# SOLID Principles Examples
+# SOLID Principles
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](./README.pt-br.md)
+
 This repository is dedicated to demonstrating the SOLID principles of object-oriented design through practical examples. Each principle is illustrated with clear, concise code examples in Node.js, aiming to provide a straightforward understanding of how these principles can be applied to improve software design, making it more maintainable, scalable, and flexible.
 
 ## What are SOLID Principles?

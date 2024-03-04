@@ -1,4 +1,6 @@
 # DIP - Dependency Inversion Principle
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](./README.pt-br.md)
 
 The Dependency Inversion Principle (DIP) is one of the five SOLID principles of object-oriented programming. It states that high-level modules should not depend on low-level modules. Both should depend on abstractions. In addition, abstractions should not depend on details. Details should depend on abstractions.
 
@@ -147,7 +149,3 @@ Your task is to refactor this payment processing system to adhere to the Depende
 - Demonstrate the system's flexibility by writing additional tests for a new payment service.
 
 This exercise challenges you to apply the Dependency Inversion Principle to make the payment processing system more flexible and maintainable, thereby facilitating easier testing and extension with new payment methods.
-
-
-
-

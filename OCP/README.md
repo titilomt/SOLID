@@ -1,4 +1,6 @@
 # OCP - Open/Closed Principle
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](./README.pt-br.md)
 
 The Open/Closed Principle is the "O" in the SOLID acronym, which represents the five basic principles of object-oriented programming and design. States that software entities should be open for extension but closed for modification. This means that you should be able to add new features to a class or module without modifying its structure. These principles are intended to make software designs more understandable, flexible, and maintainable.
 
