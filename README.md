@@ -1,51 +1,37 @@
-# SOLID Principles
-[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](./README.pt-br.md)
+# Code Quality Essentials
 
-This repository is dedicated to demonstrating the SOLID principles of object-oriented design through practical examples. Each principle is illustrated with clear, concise code examples in Node.js, aiming to provide a straightforward understanding of how these principles can be applied to improve software design, making it more maintainable, scalable, and flexible.
+## What's Inside
 
-## What are SOLID Principles?
-SOLID stands for five design principles intended to make software designs more understandable, flexible, and maintainable. The acronym SOLID stands for:
+- **SOLID Principles Module:** Dive deep into the SOLID design principles that are fundamental to writing clean and maintainable object-oriented code. Each principle is explored through detailed explanations, use cases, and practical examples.
+  - **Single Responsibility Principle (SRP)**
+  - **Open/Closed Principle (OCP)**
+  - **Liskov Substitution Principle (LSP)**
+  - **Interface Segregation Principle (ISP)**
+  - **Dependency Inversion Principle (DIP)**
 
-- Single Responsibility Principle (SRP)
-- Open/Closed Principle (OCP)
-- Liskov Substitution Principle (LSP)
-- Interface Segregation Principle (ISP)
-- Dependency Inversion Principle (DIP)
+- **Refactor Principles Module:** Learn about key refactor principles and techniques to improve existing code. Discover strategies for identifying code smells and the steps to safely refactor code to enhance its design and performance.
+  - **Code Smells and Identification**
+  - **Common Refactoring Techniques**
+  - **Refactoring to Patterns**
+  - **Refactoring Legacy Code**
+  - **Automated Refactoring Tools**
 
 ## Getting Started
-To explore the examples, clone this repository to your local machine and navigate to each principle's dedicated directory. Each principle is demonstrated using Node.js, so ensure you have Node.js installed on your system.
+
+To get started with this repository, clone it to your local machine:
 
 ```bash
-git clone https://github.com/titilomt/SOLID.git
-cd SOLID
-```
-## Prerequisites
-Node.js (recommended version 18 or above)
+git clone https://github.com/titilomt/code-quality.git
 
-## Installation
-No additional installation is required. Each example can be run directly using Node.js. For instance, to run an example for the Single Responsibility Principle:
+# Navigate into the repository's directory:
 
-```bash
-cd SRP
-npm install
-npm test
+cd code-quality
 ```
 
-## Examples Overview
-- Single Responsibility Principle (SRP)
-  - Location: `/SRP`
-  - Demonstrates how to design classes that have only one reason to change, focusing on a single responsibility.
-- Open/Closed Principle (OCP)
-  - Location: `/OCP`
-  - Showcases how entities should be open for extension but closed for modification.
-- Liskov Substitution Principle (LSP)
-  - Location: `/LSP`
-  - Illustrates substitutability of objects of a superclass with objects of a subclass without affecting the correctness of the program.
-- Interface Segregation Principle (ISP)
-  - Location: `/ISP`
-  - Demonstrates how to create lean interfaces that do not force implementing classes to depend on methods they do not use.
-- Dependency Inversion Principle (DIP)
-  - Location: `/DIP`
-  - Explains how to decouple high-level modules from low-level modules by introducing abstractions that both can depend on.
----
+Each module contains a README with detailed instructions on how to explore the principles and practices within. Follow the READMEs in each module directory to dive into the content.
+
+## Contributing
+
+Contributions to the Code Quality Essentials repository are welcome! If you have suggestions for additional principles, refactor techniques, or any improvements, please follow our contribution guidelines outlined in CONTRIBUTING.md.
+
+Happy coding!
