@@ -2,6 +2,7 @@ import { set, reset } from "mockdate"; // mockdate é uma lib para mockar a data
 
 type OutputEvent = {
   endDate: Date;
+  reviewDurationInHours: number; // Nomeclatura de variável em camelCase para melhor leitura e que faça sentido Clean Code Naming Conventions
 };
 interface LoadLastEventRepository {
   loadLastEvent: ({
@@ -81,6 +82,7 @@ describe("CheckLastEventStatus", () => {
     const { sut, loadLastEventRepository } = sutCheckLastEventStatusFactory();
     loadLastEventRepository.output = {
       endDate: new Date(new Date().getTime() + 1),
+      reviewDurationInHours: 1,
     };
 
     const eventStatus = await sut.exec({ groupId });
@@ -91,6 +93,7 @@ describe("CheckLastEventStatus", () => {
     const { sut, loadLastEventRepository } = sutCheckLastEventStatusFactory();
     loadLastEventRepository.output = {
       endDate: new Date(),
+      reviewDurationInHours: 1,
     };
 
     const eventStatus = await sut.exec({ groupId });
@@ -101,6 +104,20 @@ describe("CheckLastEventStatus", () => {
     const { sut, loadLastEventRepository } = sutCheckLastEventStatusFactory();
     loadLastEventRepository.output = {
       endDate: new Date(new Date().getTime() - 1),
+      reviewDurationInHours: 1,
+    };
+
+    const eventStatus = await sut.exec({ groupId });
+
+    expect(eventStatus.status).toBe("inReview");
+  });
+  it("should return status isReview when current date is before review time", async () => {
+    const reviewDurationInHours = 1;
+    const reviewDurationInMs = reviewDurationInHours * 60 * 60 * 1000;
+    const { sut, loadLastEventRepository } = sutCheckLastEventStatusFactory();
+    loadLastEventRepository.output = {
+      endDate: new Date(new Date().getTime() - reviewDurationInMs + 1), // +1 para garantir que a data seja antes do tempo de revisão para ficar no limite
+      reviewDurationInHours,
     };
 
     const eventStatus = await sut.exec({ groupId });
