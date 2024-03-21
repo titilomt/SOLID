@@ -11,14 +11,19 @@ interface LoadLastEventRepository {
   }) => Promise<OutputEvent | undefined>;
 }
 
+// Evitar usar tipo primitivo como retorno de função, pois pode ser que no futuro seja necessário retornar mais informações
+type EventStatus = {
+  status: string;
+};
+
 class CheckLastEventStatus {
   constructor(private readonly loadLastEventRepo: LoadLastEventRepository) {}
 
-  async exec({ groupId }: { groupId: string }): Promise<string> {
+  async exec({ groupId }: { groupId: string }): Promise<EventStatus> {
     const event = await this.loadLastEventRepo.loadLastEvent({ groupId });
-    if (event === undefined) return "done";
+    if (event === undefined) return { status: "done" };
     const now = new Date();
-    return event.endDate > now ? "active" : "inReview";
+    return event.endDate > now ? { status: "active" } : { status: "inReview" };
   }
 }
 
@@ -68,9 +73,9 @@ describe("CheckLastEventStatus", () => {
     const { sut, loadLastEventRepository } = sutCheckLastEventStatusFactory();
     loadLastEventRepository.output = undefined;
 
-    const status = await sut.exec({ groupId });
+    const eventStatus = await sut.exec({ groupId });
 
-    expect(status).toBe("done");
+    expect(eventStatus.status).toBe("done");
   });
   it("should return status active when current date is before event end date", async () => {
     const { sut, loadLastEventRepository } = sutCheckLastEventStatusFactory();
@@ -78,9 +83,9 @@ describe("CheckLastEventStatus", () => {
       endDate: new Date(new Date().getTime() + 1),
     };
 
-    const status = await sut.exec({ groupId });
+    const eventStatus = await sut.exec({ groupId });
 
-    expect(status).toBe("active");
+    expect(eventStatus.status).toBe("active");
   });
   it("should return status isReview when current date is after event end date", async () => {
     const { sut, loadLastEventRepository } = sutCheckLastEventStatusFactory();
@@ -88,8 +93,8 @@ describe("CheckLastEventStatus", () => {
       endDate: new Date(new Date().getTime() - 1),
     };
 
-    const status = await sut.exec({ groupId });
+    const eventStatus = await sut.exec({ groupId });
 
-    expect(status).toBe("inReview");
+    expect(eventStatus.status).toBe("inReview");
   });
 });
