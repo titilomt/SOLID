@@ -5,9 +5,7 @@ type OutputEvent = {
   reviewDurationInHours: number; // Nomeclatura de variável em camelCase para melhor leitura e que faça sentido Clean Code Naming Conventions
 };
 interface LoadLastEventRepository {
-  loadLastEvent: ({
-    groupId,
-  }: {
+  loadLastEvent: (input: {
     groupId: string;
   }) => Promise<OutputEvent | undefined>;
 }
@@ -36,22 +34,17 @@ class EventStatus {
   }
 }
 
+// Classe de regra de negócio
 class CheckLastEventStatus {
   constructor(private readonly loadLastEventRepo: LoadLastEventRepository) {}
 
   async exec({ groupId }: { groupId: string }): Promise<EventStatus> {
     const event = await this.loadLastEventRepo.loadLastEvent({ groupId });
-    if (event === undefined) return { status: "done" };
-    const now = new Date();
-    if (event.endDate >= now) return { status: "active" };
-    const reviewDurationInMs = event.reviewDurationInHours * 60 * 60 * 1000;
-    const reviewEndDate = new Date(
-      event.endDate.getTime() + reviewDurationInMs
-    );
-    return reviewEndDate >= now ? { status: "inReview" } : { status: "done" };
+    return new EventStatus(event);
   }
 }
 
+// Spy é um tipo de mock que serve para verificar se uma função foi chamada e com quais argumentos
 class LoadLastEventRepositorySpy implements LoadLastEventRepository {
   groupId?: string;
   callsCount = 0;
@@ -68,10 +61,14 @@ class LoadLastEventRepositorySpy implements LoadLastEventRepository {
   }
 }
 
+// Tipo de saída do SUT (System Under Test)
 type SutOutput = {
   sut: CheckLastEventStatus;
   loadLastEventRepository: LoadLastEventRepositorySpy;
 };
+
+// Factory para criar o SUT (System Under Test)
+// Padroniza a criação do SUT, evitando repetição de código
 const sutCheckLastEventStatusFactory = (): SutOutput => {
   const loadLastEventRepository = new LoadLastEventRepositorySpy();
   const sut = new CheckLastEventStatus(loadLastEventRepository);
@@ -84,7 +81,7 @@ describe("CheckLastEventStatus", () => {
     set(new Date()); // mockando a data atual para ser sempre a mesma
   });
   afterAll(() => {
-    reset(); // resetando a data atual
+    reset(); // resetando mock de data atual
   });
   it("should get last event data", async () => {
     const { sut, loadLastEventRepository } = sutCheckLastEventStatusFactory();

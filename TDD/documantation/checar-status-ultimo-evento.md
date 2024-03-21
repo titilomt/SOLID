@@ -20,3 +20,11 @@ Obter o status do último evento do grupo
 
 > ## Fluxo Alternativo: Grupo não tem Evento marcado
 2. Retornar o status "encerrado"
+
+## Todo
+
+* [x] Criar testes unitários
+* [x] Criar logica para o fluxo principal
+* [x] Criar logica para os fluxos alternativos
+
+---
