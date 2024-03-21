@@ -19,7 +19,7 @@
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest --passWithNoTests --no-cache --runInBand",
-    "test:watch": "npm t -- --watchAll"
+    "test:watch": "npm t -- --watchAll --noStackTrace"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
