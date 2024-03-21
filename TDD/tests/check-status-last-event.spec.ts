@@ -13,9 +13,28 @@ interface LoadLastEventRepository {
 }
 
 // Evitar usar tipo primitivo como retorno de função, pois pode ser que no futuro seja necessário retornar mais informações
-type EventStatus = {
-  status: string;
-};
+// Quando o tipo é complexo de mais, tem regras de negócios que serão reutilizadas em outros lugares
+// é interessante criar uma classe de entidade para ele
+class EventStatus {
+  status?: "active" | "inReview" | "done";
+
+  constructor(eventDto?: OutputEvent) {
+    if (eventDto === undefined) {
+      this.status = "done";
+      return;
+    }
+    const now = new Date();
+    if (eventDto.endDate >= now) {
+      this.status = "active";
+      return;
+    }
+    const reviewDurationInMs = eventDto.reviewDurationInHours * 60 * 60 * 1000;
+    const reviewEndDate = new Date(
+      eventDto.endDate.getTime() + reviewDurationInMs
+    );
+    this.status = reviewEndDate >= now ? "inReview" : "done";
+  }
+}
 
 class CheckLastEventStatus {
   constructor(private readonly loadLastEventRepo: LoadLastEventRepository) {}
