@@ -1,0 +1,36 @@
+{
+  "name": "clean-node-tdd",
+  "version": "0.0.1",
+  "description": "Clean Architecture and TDD.",
+  "license": "UNLICENSED",
+  "keywords": [
+    "clean architecture",
+    "clean code",
+    "tdd",
+    "ddd",
+    "solid",
+    "design patterns",
+    "node",
+    "typescript",
+    "jest"
+  ],
+  "scripts": {
+    "start": "echo \"Error: no start specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest --passWithNoTests --no-cache --runInBand",
+    "test:watch": "npm t -- --watchAll"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/module-alias": "^2.0.4",
+    "jest": "^29.7.0",
+    "mockdate": "^3.0.5",
+    "ts-jest": "^29.1.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "module-alias": "^2.2.3"
+  }
+}
