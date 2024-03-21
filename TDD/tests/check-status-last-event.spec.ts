@@ -124,4 +124,17 @@ describe("CheckLastEventStatus", () => {
 
     expect(eventStatus.status).toBe("inReview");
   });
+  it("should return status isReview when current date is equals to review time", async () => {
+    const reviewDurationInHours = 1;
+    const reviewDurationInMs = reviewDurationInHours * 60 * 60 * 1000;
+    const { sut, loadLastEventRepository } = sutCheckLastEventStatusFactory();
+    loadLastEventRepository.output = {
+      endDate: new Date(new Date().getTime() - reviewDurationInMs), // revisão no tempo limite
+      reviewDurationInHours,
+    };
+
+    const eventStatus = await sut.exec({ groupId });
+
+    expect(eventStatus.status).toBe("inReview");
+  });
 });
